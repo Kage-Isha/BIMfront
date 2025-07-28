@@ -42,23 +42,22 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 flex justify-center items-start p-6">
-      <div className="max-w-lg w-full bg-white shadow-xl p-8 rounded-2xl">
-        <h1 className="text-4xl font-extrabold text-blue-800 text-center mb-2">
+    <div className="min-h-screen bg-white flex justify-center items-start p-6">
+      <div className="max-w-lg w-full bg-white shadow-xl p-8 rounded-2xl border border-[#1A56A2]">
+        <h1 className="text-4xl font-extrabold text-[#1A56A2] text-center mb-6 font-sans tracking-wide">
           Contact Us
         </h1>
 
         {user ? (
-          <p className="text-center text-gray-600 mb-6">
-            Hello, <span className="font-bold text-blue-700">{user.name}</span>!
-            We're here to help.
+          <p className="text-center text-gray-700 mb-6">
+            Hello, <span className="font-bold text-[#1A56A2]">{user.name}</span>! We're here to help.
           </p>
         ) : (
-          <p className="text-center text-gray-600 mb-6">
+          <p className="text-center text-gray-700 mb-6">
             You can contact us below — or{" "}
             <span
               onClick={() => router.push("/signin")}
-              className="text-blue-600 underline cursor-pointer font-medium"
+              className="text-[#1A56A2] underline cursor-pointer font-medium"
             >
               sign in
             </span>{" "}
@@ -82,7 +81,7 @@ export default function Contact() {
               name="type"
               value={form.type}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-[#1A56A2] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A56A2]"
               required
             >
               <option value="Feedback">Feedback</option>
@@ -99,7 +98,7 @@ export default function Contact() {
               placeholder="Your Name"
               value={form.name}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-[#1A56A2] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A56A2]"
               required
               disabled={!!user}
             />
@@ -114,7 +113,7 @@ export default function Contact() {
               placeholder="Your Email"
               value={form.email}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-[#1A56A2] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A56A2]"
               required
               disabled={!!user}
             />
@@ -129,7 +128,7 @@ export default function Contact() {
               placeholder="Your Phone"
               value={form.phone}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-[#1A56A2] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A56A2]"
             />
           </div>
 
@@ -141,7 +140,7 @@ export default function Contact() {
               placeholder="Type your message here..."
               value={form.message}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
+              className="w-full p-3 border border-[#1A56A2] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A56A2] h-32"
               required
             />
           </div>
@@ -149,7 +148,7 @@ export default function Contact() {
           {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-800 transition-all duration-200"
+            className="w-full bg-[#1A56A2] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#144A86] transition-all duration-200"
           >
             Send Message
           </button>
@@ -157,148 +156,9 @@ export default function Contact() {
 
         <div className="text-center text-sm text-gray-500 mt-6">
           Need urgent help? Email us directly at{" "}
-          <span className="text-blue-600 font-medium">support@bimconnect.com</span>
+          <span className="text-[#1A56A2] font-medium">support@bimconnect.com</span>
         </div>
       </div>
     </div>
   );
 }
-// "use client";
-
-// import { useState, useEffect } from "react";
-// import { useAuth } from "@/contexts/authContext";
-
-// export default function Contact() {
-//   const { user } = useAuth(); // Authenticated user or null
-
-//   const [form, setForm] = useState({
-//     name: "",
-//     email: "",
-//     message: "",
-//     type: "Feedback",
-//   });
-
-//   // Autofill for signed-in users
-//   useEffect(() => {
-//     if (user) {
-//       setForm((prev) => ({
-//         ...prev,
-//         name: user.name || "",
-//         email: user.email || "",
-//       }));
-//     }
-//   }, [user]);
-
-//   const handleChange = (e) =>
-//     setForm({ ...form, [e.target.name]: e.target.value });
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log(form); // replace with API call
-//     alert("Thank you for your message!");
-//     setForm((prev) => ({
-//       ...prev,
-//       message: "",
-//       type: "Feedback",
-//     }));
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 flex justify-center items-start p-6">
-//       <div className="max-w-lg w-full bg-white shadow-xl p-8 rounded-2xl">
-//         <h1 className="text-4xl font-extrabold text-blue-800 text-center mb-2">
-//           Contact Us
-//         </h1>
-
-//         {user ? (
-//           <p className="text-center text-gray-600 mb-6">
-//             Hello, <span className="font-bold text-blue-700">{user.name}</span>!
-//             We're here to help.
-//           </p>
-//         ) : (
-//           <p className="text-center text-gray-600 mb-6">
-//             You can contact us below — or{" "}
-//             <span className="text-blue-600 underline cursor-pointer">
-//               sign in
-//             </span>{" "}
-//             for a faster experience.
-//           </p>
-//         )}
-
-//         <form onSubmit={handleSubmit} className="space-y-5">
-//           {/* Type Select */}
-//           <div>
-//             <label className="block mb-1 font-medium text-gray-700">
-//               Type
-//             </label>
-//             <select
-//               name="type"
-//               value={form.type}
-//               onChange={handleChange}
-//               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//               required
-//             >
-//               <option value="Feedback">Feedback</option>
-//               <option value="Advice">Advice</option>
-//             </select>
-//           </div>
-
-//           {/* Name */}
-//           <div>
-//             <label className="block mb-1 font-medium text-gray-700">Name</label>
-//             <input
-//               name="name"
-//               type="text"
-//               placeholder="Your Name"
-//               value={form.name}
-//               onChange={handleChange}
-//               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//               required
-//               disabled={!!user}
-//             />
-//           </div>
-
-//           {/* Email */}
-//           <div>
-//             <label className="block mb-1 font-medium text-gray-700">
-//               Email
-//             </label>
-//             <input
-//               name="email"
-//               type="email"
-//               placeholder="Your Email"
-//               value={form.email}
-//               onChange={handleChange}
-//               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//               required
-//               disabled={!!user}
-//             />
-//           </div>
-
-//           {/* Message */}
-//           <div>
-//             <label className="block mb-1 font-medium text-gray-700">
-//               Message
-//             </label>
-//             <textarea
-//               name="message"
-//               placeholder="Type your message here..."
-//               value={form.message}
-//               onChange={handleChange}
-//               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
-//               required
-//             />
-//           </div>
-
-//           {/* Submit */}
-//           <button
-//             type="submit"
-//             className="w-full bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-800 transition-all duration-200"
-//           >
-//             Send Message
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
